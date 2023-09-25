@@ -8,7 +8,7 @@ namespace RealEstateWebsite.Models
         public int Id { get; set; }
         [Display (Name="House")]
         public string? houseName { get; set; }
-        [Display (Name ="Cost")]
+        [Display (Name ="Cost (€)")]
         [Column(TypeName ="double(15)")]
         public int houseCost { get; set; }
         [Display (Name ="Address")]
