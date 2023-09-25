@@ -18,5 +18,8 @@ namespace RealEstateWebsite.Models
         [Display (Name ="City Location")]
         public string? city { get; set; }
 
+        [Display (Name ="Balcony")]
+        public string? hasBalcony { get; set; }
+
     }
 }
