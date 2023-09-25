@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,11 +21,20 @@ namespace RealEstateWebsite.Controllers
         }
 
         // GET: Listings
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Listings != null ? 
-                          View(await _context.Listings.ToListAsync()) :
-                          Problem("Entity set 'RealEstateWebsiteContext.Listings'  is null.");
+            var listing = from m in _context.Listings
+                          select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                listing = listing.Where(s => s.city.Contains(searchString));
+            }
+
+            return View(await listing.ToListAsync());
+              //return _context.Listings != null ? 
+                          //View(await _context.Listings.ToListAsync()) :
+                          //Problem("Entity set 'RealEstateWebsiteContext.Listings'  is null.");
         }
 
         // GET: Listings/Details/5
