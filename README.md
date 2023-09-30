@@ -1,7 +1,7 @@
 # MVC_Real_Estate_Website
 
 
-Tech used: ASP.NET MVC, HTML, Razor & C#
+__Tech used: ASP.NET MVC, HTML, Razor & C#__
 
 
 ![Visual Design](home1.png)
